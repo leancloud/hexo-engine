@@ -8,9 +8,9 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "prestart": "hexo g",
-    "start": "hexo serve -p 3000",
+    "start": "hexo serve -p $LC_APP_PORT",
     "predev": "hexo g",
-    "dev": "hexo serve -p 3000"
+    "dev": "hexo serve -p $LC_APP_PORT"
   },
   "hexo": {
     "version": "5.2.0"
