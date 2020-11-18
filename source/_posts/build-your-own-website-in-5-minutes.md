@@ -107,7 +107,7 @@ $ lean switch
 
 按照提示选择区域和目标应用即可。
 
-> 有关云引擎命令行工具的更多使用内容，可以参考文档：[命令行工具 CLI 使用指南](https://leancloud.cn/docs/leanengine_cli.html#hash660873)。
+有关云引擎命令行工具的更多使用内容，可以参考文档：[命令行工具 CLI 使用指南](https://leancloud.cn/docs/leanengine_cli.html#hash660873)。
 
 #### 本地运行
 
