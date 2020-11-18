@@ -8,18 +8,18 @@ tags:
 
 我们使用 Hexo 框架来搭建博客站点，同时将站点托管到 [LeanCloud](https://leancloud.app) 平台的「云引擎」之上，以完成最终的部署上线。闲言少叙，书归正文，我们看看具体的步骤是什么样子的。
 
-## 安装依赖
+## 1, 安装依赖
 
 Hexo 依赖于 Node.js 和 Git，如果你的电脑中已经安装了这两个必备程序，那么可以直接前往下一步。如果你的电脑中尚未安装所需要的程序，请参考[官方指南](https://hexo.io/zh-cn/docs/#安装前提)完成安装：
 
-## 安装 Hexo
+## 2, 安装 Hexo
 
 依赖安装完成之后，可以使用 npm 安装 Hexo。
 ```
 $ npm install -g hexo-cli
 ```
 
-## 下载博客项目模版
+## 3, 下载博客项目模版
 
 Hexo 命令行工具可以创建一个典型的博客项目，在该项目内 Hexo 通过使用特定的主题（theme）来对 Markdown 格式的文章内容进行渲染，从而生成静态文件。一般情况下，我们只需要把这些静态文件部署到远程服务器上，即可获得一个可用站点。
 
@@ -38,7 +38,7 @@ $ cd hexo-engine
 $ npm install
 ```
 
-## 添加内容
+## 4, 添加内容
 
 Hexo 框架将所有的博客文章统一放置在 `source/_posts` 目录下。我们进入 hexo-engine 目录，执行 `hexo new` 命令即可增加一篇新的博客文章。
 
@@ -58,7 +58,7 @@ INFO  Created: ./hexo-engine/source/_posts/build-your-own-website-in-5-minutes.m
 
 直接去编辑这个新增的 Markdown 文件（build-your-own-website-in-5-minutes.md）就可以了。
 
-## 本地运行
+## 5, 本地运行
 
 文章编辑好了之后，我们可以运行 `hexo generate` 命令来生成静态文件，`hexo server` 来启动本地服务器，查看实际效果。我们在命令行下输入如下命令：
 
@@ -77,13 +77,13 @@ INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
 
 这时候在浏览器内打开 `http://localhost:4000`，就可以看到我们自己的博客站点已经跑起来了。
 
-## 部署到 LeanCloud
+## 6, 部署到 LeanCloud
 
 到目前为止，我们的个人站点已经可以跑起来了，唯一的遗憾是还没有实际部署到互联网上，还不能让其他小伙伴自由访问。
 
 这里我们使用 LeanCloud 云引擎服务来免费完成这最后的一步——部署上线。首先我们申请一个 LeanCloud 账号，并创建一个应用，这部分操作比较简单，大家自行登录 [LeanCloud 官网](https://leancloud.app) 操作即可。
 
-#### 准备：安装云引擎命令行工具
+### 6.1 准备：安装云引擎命令行工具
 
 我们首先需要安装云引擎的命令行工具（可以参考[官网文档](https://leancloud.cn/docs/leanengine_cli.html#hash1443149115)):
 
@@ -95,7 +95,7 @@ INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
 
 ```
 $ cd hexo-engine
-$ lean login
+$ lean login --region US
 ```
 
 然后是将当前的项目与 LeanCloud 应用建立关联，输入如下命令：
@@ -109,7 +109,7 @@ $ lean switch
 
 有关云引擎命令行工具的更多使用内容，可以参考文档：[命令行工具 CLI 使用指南](https://leancloud.cn/docs/leanengine_cli.html#hash660873)。
 
-#### 本地运行
+### 6.2 本地运行
 
 在项目目录下运行如下命令：
 
@@ -120,7 +120,7 @@ $ lean up
 
 在浏览器中打开 `http://localhost:3000`，我们可以看到博客站点的首页内容。
 
-#### 部署到云端
+### 6.3 部署到云端
 
 如果前面的步骤都没有问题，我们就可以将当前项目部署到 LeanCloud 云端了。在命令行下输入如下命令：
 ```
@@ -150,15 +150,15 @@ $ lean deploy
 
 大功告成，我们的个人博客已经顺利上线了！测算一下，不计创建账号和下载工具的时间，整个过程耗时应该不超过 5 分钟。
 
-## 其他
+## 7, 其他
 
-### 定制化修改
+### 7.1 定制化修改
 
 我们可以通过修改项目根目录下的 `_config.yml` 文件，来对现在的博客站点进行一些定制，例如修改网站标题、描述、关键字，等等。具体细节可以参考[这里的官方指南](https://hexo.io/zh-cn/docs/configuration)。
 
-### 给博客加上评论功能
+### 7.2 给博客加上评论功能
 
 我们推荐大家使用 [Valine](https://valine.js.org) 这一个评论插件，具体的接入可以参考[这篇博客](https://qianfanguojin.github.io/2019/07/23/Hexo博客进阶：为Next主题添加Valine评论系统/)。
 
-### 使用更多主题
+### 7.3 使用更多主题
 有很多开发者为 Hexo 贡献了非常多精美的主题，要替换一个新的主题，操作上也是非常简单的，有兴趣的读者可以阅读[这里的](https://hexo.io/zh-cn/docs/themes)文档。
